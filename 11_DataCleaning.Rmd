@@ -9,11 +9,11 @@ source("00_requirements.R")
 source("01_funct_DataCleaning.R")
 ```
 
-The project uses two files from the `data` folder: the top quarterbacks of each season
+The project uses two csv files from the folder: the top quarterbacks of each season
 (2021-2025, with team win percentage and an MVP indicator) and the list of MVP winners.
 ```{r load}
-qb      <- load_qb_data("data/candidates_21-25.csv")
-winners <- load_winners_data("data/MVP-winners_21-25.csv")
+qb      <- load_qb_data("candidates_21-25.csv")
+winners <- load_winners_data("MVP-winners_21-25.csv")
 dim(qb)
 winners
 head(qb)

@@ -10,7 +10,7 @@
 - 12_DataSaving.RData: cleaned data created by 11_DataCleaning.Rmd.
 - data from https://www.pro-football-reference.com: MVP-winners_21-25.csv, candidates_21-25.csv
 ## Report file:
-- FinalReport.Rmd: Describes in full detail our question, the methodology deployed to answer it, and the conclusions we aim to reach.
+- FinalReport.Rmd & PDF: Describes in full detail our question, the methodology deployed to answer it, and the conclusions we aim to reach.
 
 ## Reproduce
 1. Open the project in RStudio.

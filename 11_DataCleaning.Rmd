@@ -1,0 +1,53 @@
+---
+title: "11_DataCleaning"
+output: html_document
+date: "2026-11-06"
+---
+
+```{r setup, message=FALSE}
+source("00_requirements.R")
+source("01_funct_DataCleaning.R")
+```
+
+The project uses two files from the `data` folder: the top quarterbacks of each season
+(2021-2025, with team win percentage and an MVP indicator) and the list of MVP winners.
+```{r load}
+qb      <- load_qb_data("data/candidates_21-25.csv")
+winners <- load_winners_data("data/MVP-winners_21-25.csv")
+dim(qb)
+winners
+head(qb)
+```
+
+## Check for missing values and duplicates
+```{r quality}
+colSums(is.na(qb))
+sum(duplicated(qb[, c("season", "player_id")]))   # expect 0
+```
+
+## Check that each season has exactly one MVP
+```{r winners}
+check_winners(qb)
+```
+
+## Check the MVP indicator against the winners file
+```{r winners-match}
+mvp_in_data <- qb |> filter(mvp == 1) |> select(season, player_name)
+anti_join(winners, mvp_in_data, by = c("season", "player_name"))
+anti_join(mvp_in_data, winners, by = c("season", "player_name"))
+```
+
+## Create new variables
+Per-game versions of each statistic make QBs comparable even when games played differ.
+Within-season ranks show where each QB stands against his own competition.
+```{r features}
+qb <- qb |>
+  add_qb_features() |>
+  add_season_ranks(stats = c("pass_yds_pg", "pass_td_pg", "pass_int_pg",
+                             "td_int_ratio", "rush_yds_pg", "win_pct"))
+glimpse(qb)
+```
+
+```{r save}
+save(qb, winners, file = "12_DataSaving.RData")
+```

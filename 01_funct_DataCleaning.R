@@ -4,7 +4,7 @@ required_cols <- c("season", "player_id", "player_name", "team", "games",
                    "win_pct", "mvp")
 
 # load_qb_data(): reads the QB candidates file and checks its columns.
-load_qb_data <- function(path = "data/candidates_21-25.csv") {
+load_qb_data <- function(path = "candidates_21-25.csv") {
   df <- readr::read_csv(path, show_col_types = FALSE)
   missing <- setdiff(required_cols, names(df))
   if (length(missing) > 0) stop("Missing columns: ", paste(missing, collapse = ", "))
@@ -12,7 +12,7 @@ load_qb_data <- function(path = "data/candidates_21-25.csv") {
 }
 
 # load_winners_data(): reads the MVP winners file, drops the blank row under the header, and renames the columns.
-load_winners_data <- function(path = "data/MVP-winners_21-25.csv") {
+load_winners_data <- function(path = "MVP-winners_21-25.csv") {
   w <- readr::read_csv(path, show_col_types = FALSE)
   needed <- c("Year", "Pos", "Player", "Tm")
   if (!all(needed %in% names(w))) stop("Winners file must have columns: ", paste(needed, collapse = ", "))

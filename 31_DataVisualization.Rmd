@@ -1,0 +1,266 @@
+---
+title: "MVP Data Visulaization"
+author: "Janelle Valadez, German Gonzalez, and Marcus Poon"
+output:
+  pdf_document: default
+  html_document: default
+---
+```{r setup, message=FALSE}
+source("00_requirements.R")
+load("12_DataSaving.RData")
+
+```
+
+```{r}
+nfl_data <- read.csv("candidates_21-25.csv")
+index_21 <- (nfl_data$season == 2021)
+index_22 <- (nfl_data$season == 2022)
+index_23 <- (nfl_data$season == 2023)
+index_24 <- (nfl_data$season == 2024)
+index_25 <- (nfl_data$season == 2025)
+data_2021 <- nfl_data[index_21, ]
+data_2022 <- nfl_data[index_22, ]
+data_2023 <- nfl_data[index_23, ]
+data_2024 <- nfl_data[index_24, ]
+data_2025 <- nfl_data[index_25, ]
+```
+
+##Passing Yards per Season
+The following graphs show the passing yards of the quarterbacks who were candidates for MVP of that specific season.
+```{r}
+mvp_color <- ifelse(data_2021$mvp == 1, "green", "blue")
+mvp_pch <- ifelse(data_2021$mvp == 1, 19, 1)
+plot(1:nrow(data_2021), data_2021$pass_yds,  xlab = "Player Candidate", ylab = "Passing Yards", main = "Passing Yards for 2021", col = mvp_color, pch = mvp_pch, cex = 2)
+abline(h = data_2021$pass_yds[data_2021$mvp == 1], col = "red", lwd = 2)
+```
+Based on the graph above, we can see that the MVP quarterback for 2021 had a lower amount of passing yards than majority of the other candidates.
+
+```{r}
+mvp_color <- ifelse(data_2022$mvp == 1, "green", "blue")
+mvp_pch <- ifelse(data_2022$mvp == 1, 19, 1)
+plot(1:nrow(data_2022), data_2022$pass_yds,  xlab = "Player Candidate", ylab = "Passing Yards", main = "Passing Yards for 2022", col = mvp_color, pch = mvp_pch, cex = 2)
+abline(h = data_2022$pass_yds[data_2022$mvp == 1], col = "red", lwd = 2)
+```
+Based on the graph above, we can see that the MVP quarterback for 2022 had a higher amount of passing yards than the other candidates.
+
+```{r}
+mvp_color <- ifelse(data_2023$mvp == 1, "green", "blue")
+mvp_pch <- ifelse(data_2023$mvp == 1, 19, 1)
+plot(1:nrow(data_2023), data_2023$pass_yds,  xlab = "Player Candidate", ylab = "Passing Yards", main = "Passing Yards for 2023", col = mvp_color, pch = mvp_pch, cex = 2)
+abline(h = data_2023$pass_yds[data_2023$mvp == 1], col = "red", lwd = 2)
+```
+Based on the graph above, we can see that the MVP quarterback for 2023 had a lower amount of passing yards than the other candidates, except one outlier.
+
+```{r}
+mvp_color <- ifelse(data_2024$mvp == 1, "green", "blue")
+mvp_pch <- ifelse(data_2024$mvp == 1, 19, 1)
+plot(1:nrow(data_2024), data_2024$pass_yds,  xlab = "Player Candidate", ylab = "Passing Yards", main = "Passing Yards for 2024", col = mvp_color, pch = mvp_pch, cex = 2)
+abline(h = data_2024$pass_yds[data_2024$mvp == 1], col = "red", lwd = 2)
+```
+Based on the graph above, we can see that the MVP quarterback for 2024 had a lower amount of passing yards than majority of the other candidates.
+
+```{r}
+mvp_color <- ifelse(data_2025$mvp == 1, "green", "blue")
+mvp_pch <- ifelse(data_2025$mvp == 1, 19, 1)
+plot(1:nrow(data_2025), data_2025$pass_yds,  xlab = "Player Candidate", ylab = "Passing Yards", main = "Passing Yards for 2025", col = mvp_color, pch = mvp_pch, cex = 2)
+abline(h = data_2025$pass_yds[data_2025$mvp == 1], col = "red", lwd = 2)
+```
+Based on the graph above, we can see that the MVP quarterback for 2025 had a higher amount of passing yards than all of the other candidates.
+
+
+##Passing Touchdowns by Season Graph
+The following graphs show the passing touchdowns of the quarterbacks who were candidates for MVP of that specific season.
+
+```{r}
+mvp_color <- ifelse(data_2021$mvp == 1, "green", "blue")
+mvp_pch <- ifelse(data_2021$mvp == 1, 19, 1)
+plot(1:nrow(data_2021), data_2021$pass_td, xlab = "Player Candidates", ylab = "Passing Touchdowns", main = "Passing Touchdowns for 2021", col = mvp_color, pch = mvp_pch, cex = 2)
+abline(h = data_2021$pass_td[data_2021$mvp == 1], col = "red", lwd = 2)
+```
+Based on the graph above, we can see that the MVP quarterback for 2021 had passing touchdowns that were consistent with some of the other MVP candidates.
+
+```{r}
+mvp_color <- ifelse(data_2022$mvp == 1, "green", "blue")
+mvp_pch <- ifelse(data_2022$mvp == 1, 19, 1)
+plot(1:nrow(data_2022), data_2022$pass_td, xlab = "Player Candidates", ylab = "Passing Touchdowns", main = "Passing Touchdowns for 2022", col = mvp_color, pch = mvp_pch, cex = 2)
+abline(h = data_2022$pass_td[data_2022$mvp == 1], col = "red", lwd = 2)
+```
+Based on the graph above, we can see that the MVP quarterback for 2022 had a higher amount of passing touchdowns than all of the other candidates.
+
+```{r}
+mvp_color <- ifelse(data_2023$mvp == 1, "green", "blue")
+mvp_pch <- ifelse(data_2023$mvp == 1, 19, 1)
+plot(1:nrow(data_2023), data_2023$pass_td, xlab = "Player Candidates", ylab = "Passing Touchdowns", main = "Passing Touchdowns for 2023", col = mvp_color, pch = mvp_pch, cex = 2)
+abline(h = data_2023$pass_td[data_2023$mvp == 1], col = "red", lwd = 2)
+```
+Based on the graph above, we can see that the MVP quarterback for 2023 had an amount of passing touchdowns that was on the lower end in comparison to the other candidates.
+
+```{r}
+mvp_color <- ifelse(data_2024$mvp == 1, "green", "blue")
+mvp_pch <- ifelse(data_2024$mvp == 1, 19, 1)
+plot(1:nrow(data_2024), data_2024$pass_td, xlab = "Player Candidates", ylab = "Passing Touchdowns", main = "Passing Touchdowns for 2024", col = mvp_color, pch = mvp_pch, cex = 2)
+abline(h = data_2024$pass_td[data_2024$mvp == 1], col = "red", lwd = 2)
+```
+Based on the graph above, we can see that the MVP quarterback for 2024 had passing touchdowns that were around the median in relation to the other MVP candidates.
+
+```{r}
+mvp_color <- ifelse(data_2025$mvp == 1, "green", "blue")
+mvp_pch <- ifelse(data_2025$mvp == 1, 19, 1)
+plot(1:nrow(data_2025), data_2025$pass_td, xlab = "Player Candidates", ylab = "Passing Touchdowns", main = "Passing Touchdowns for 2025", col = mvp_color, pch = mvp_pch, cex = 2)
+abline(h = data_2025$pass_td[data_2025$mvp == 1], col = "red", lwd = 2)
+```
+Based on the graph above, we can see that the MVP quarterback for 2025 had passing touchdowns that were higher than all of the other MVP candidates.
+
+##Passing Interceptions by Season Graph
+The following graphs show the passing interceptions of the quarterbacks who were candidates for MVP of that specific season.
+
+```{r}
+mvp_color <- ifelse(data_2021$mvp == 1, "green", "blue")
+mvp_pch <- ifelse(data_2021$mvp == 1, 19, 1)
+plot(1:nrow(data_2021), data_2021$pass_int, xlab = "Player Candidates", ylab = "Passing Interceptions", main = "Passing Interceptions for 2021", col = mvp_color, pch = mvp_pch, cex = 2)
+abline(h = data_2021$pass_int[data_2021$mvp == 1], col = "red", lwd = 2)
+
+```
+Based on the graph above, we can see that the MVP quarterback for 2021 had passing interceptions that were lower than all of the other MVP candidates.
+
+```{r}
+mvp_color <- ifelse(data_2022$mvp == 1, "green", "blue")
+mvp_pch <- ifelse(data_2022$mvp == 1, 19, 1)
+plot(1:nrow(data_2022), data_2022$pass_int, xlab = "Player Candidates", ylab = "Passing Interceptions", main = "Passing Interceptions for 2022", col = mvp_color, pch = mvp_pch, cex = 2)
+abline(h = data_2022$pass_int[data_2022$mvp == 1], col = "red", lwd = 2)
+
+```
+Based on the graph above, we can see that the MVP quarterback for 2022 had passing interceptions that were higher than majority of the other MVP candidates.
+
+```{r}
+mvp_color <- ifelse(data_2023$mvp == 1, "green", "blue")
+mvp_pch <- ifelse(data_2023$mvp == 1, 19, 1)
+plot(1:nrow(data_2023), data_2023$pass_int, xlab = "Player Candidates", ylab = "Passing Interceptions", main = "Passing Interceptions for 2023", col = mvp_color, pch = mvp_pch, cex = 2)
+abline(h = data_2023$pass_int[data_2023$mvp == 1], col = "red", lwd = 2)
+
+```
+Based on the graph above, we can see that the MVP quarterback for 2023 had passing interceptions that were lower than majority of the other MVP candidates.
+
+```{r}
+mvp_color <- ifelse(data_2024$mvp == 1, "green", "blue")
+mvp_pch <- ifelse(data_2024$mvp == 1, 19, 1)
+plot(1:nrow(data_2024), data_2024$pass_int, xlab = "Player Candidates", ylab = "Passing Interceptions", main = "Passing Interceptions for 2024", col = mvp_color, pch = mvp_pch, cex = 2)
+abline(h = data_2024$pass_int[data_2024$mvp == 1], col = "red", lwd = 2)
+
+```
+Based on the graph above, we can see that the MVP quarterback for 2025 had passing interceptions that were lower than majority of the other MVP candidates.
+
+```{r}
+mvp_color <- ifelse(data_2025$mvp == 1, "green", "blue")
+mvp_pch <- ifelse(data_2025$mvp == 1, 19, 1)
+plot(1:nrow(data_2025), data_2025$pass_int, xlab = "Player Candidates", ylab = "Passing Interceptions", main = "Passing Interceptions for 2025", col = mvp_color, pch = mvp_pch, cex = 2)
+abline(h = data_2025$pass_int[data_2025$mvp == 1], col = "red", lwd = 2)
+
+```
+##Rushing Yards by Season Graph
+The following graphs show the rushing yards of the quarterbacks who were candidates for MVP of that specific season.
+
+```{r}
+mvp_color <- ifelse(data_2021$mvp == 1, "green", "blue")
+mvp_pch <- ifelse(data_2021$mvp ==1, 19, 1)
+plot(1:nrow(data_2021), data_2021$rush_yds, xlab = "Player Candidates", ylab = "Rushing Yards", main = "Rushing Yards for 2021", col = mvp_color, pch = mvp_pch, cex = 2)
+abline(h = data_2021$rush_yds[data_2021$mvp == 1], col = "red", lwd = 2)
+
+```
+Based on the graph above, we can see that the MVP quarterback for 2021 had rushing yards that were lower than majority of the other MVP candidates.
+
+```{r}
+mvp_color <- ifelse(data_2022$mvp == 1, "green", "blue")
+mvp_pch <- ifelse(data_2022$mvp ==1, 19, 1)
+plot(1:nrow(data_2022), data_2022$rush_yds, xlab = "Player Candidates", ylab = "Rushing Yards", main = "Rushing Yards for 2022", col = mvp_color, pch = mvp_pch, cex = 2)
+abline(h = data_2022$rush_yds[data_2022$mvp == 1], col = "red", lwd = 2)
+
+```
+Based on the graph above, we can see that the MVP quarterback for 2022 had rushing yards that were in the median of the other potential MVP candidates.
+
+```{r}
+mvp_color <- ifelse(data_2023$mvp == 1, "green", "blue")
+mvp_pch <- ifelse(data_2023$mvp ==1, 19, 1)
+plot(1:nrow(data_2023), data_2023$rush_yds, xlab = "Player Candidates", ylab = "Rushing Yards", main = "Rushing Yards for 2023", col = mvp_color, pch = mvp_pch, cex = 2)
+abline(h = data_2023$rush_yds[data_2023$mvp == 1], col = "red", lwd = 2)
+
+```
+Based on the graph above, we can see that the MVP quarterback for 2023 had rushing yards that were higher than all of the other potential MVP candidates.
+
+```{r}
+mvp_color <- ifelse(data_2024$mvp == 1, "green", "blue")
+mvp_pch <- ifelse(data_2024$mvp ==1, 19, 1)
+plot(1:nrow(data_2024), data_2024$rush_yds, xlab = "Player Candidates", ylab = "Rushing Yards", main = "Rushing Yards for 2024", col = mvp_color, pch = mvp_pch, cex = 2)
+abline(h = data_2024$rush_yds[data_2024$mvp == 1], col = "red", lwd = 2)
+
+```
+Based on the graph above, we can see that the MVP quarterback for 2024 had rushing yards that were slightly above the median in comaprison to the other potential MVP candidates.
+```{r}
+mvp_color <- ifelse(data_2025$mvp == 1, "green", "blue")
+mvp_pch <- ifelse(data_2025$mvp ==1, 19, 1)
+plot(1:nrow(data_2025), data_2025$rush_yds, xlab = "Player Candidates", ylab = "Rushing Yards", main = "Rushing Yards for 2025", col = mvp_color, pch = mvp_pch, cex = 2)
+abline(h = data_2025$rush_yds[data_2025$mvp == 1], col = "red", lwd = 2)
+
+```
+Based on the graph above, we can see that the MVP quarterback for 2025 had rushing yards that were below all the other potential MVP candidates.
+
+## Numerical summary: MVPs vs. other QBs
+Mean of each statistic for the MVP and for the other candidates.
+```{r summary}
+qb |>
+  group_by(mvp) |>
+  summarise(n = n(),
+            across(c(pass_yds, pass_td, pass_int, rush_yds, win_pct, td_int_ratio),
+                   ~ round(mean(.x), 2))) |>
+  kable()
+```
+Based on the data above, we can see that the average among the 5 MVPs are better in every stat compared to the candidates.
+
+## Boxplots of key statistics
+MVPs marked as red points.
+```{r boxplots}
+# plot_stat_box(): boxplot of one statistic for MVP vs. other QBs.
+# Input: df - QB data; stat - column name (string); label - axis label
+# Output: a ggplot object
+plot_stat_box <- function(df, stat, label) {
+  ggplot(df, aes(x = mvp, y = .data[[stat]])) +
+    geom_boxplot(outlier.shape = NA) +
+    geom_jitter(data = filter(df, mvp == "MVP"), color = "red", width = 0.05, size = 2) +
+    labs(x = NULL, y = label, title = paste(label, "by MVP status"))
+}
+plot_stat_box(qb, "pass_td", "Passing touchdowns")
+plot_stat_box(qb, "pass_yds", "Passing yards")
+plot_stat_box(qb, "pass_int", "Interceptions")
+plot_stat_box(qb, "win_pct", "Team win percentage")
+```
+Based on the graph above, we can see that the average among MVPs are higher in passing touchdowns and team win percentage, and lower in interceptions compared to the other candidates. 
+
+## Touchdowns vs. team success
+```{r scatter}
+ggplot(qb, aes(x = win_pct, y = pass_td, color = mvp)) +
+  geom_point(alpha = 0.7) +
+  ggrepel::geom_text_repel(data = filter(qb, mvp == "MVP"),
+                           aes(label = paste(player_name, season)), show.legend = FALSE) +
+  labs(x = "Team win percentage", y = "Passing touchdowns", color = NULL,
+       title = "MVP QBs team wins and passing touchdowns")
+```
+Based on the graph above, we can see that all the MVPs in the past 5 years had a win percentage above 0.7, but passing touchdowns vary among them.
+
+The table shows the MVP's rank on each statistic, and the plot shows the average rank
+(lower = the MVP tended to lead the field on that statistic).
+```{r ranks}
+rank_cols <- grep("_rank$", names(qb), value = TRUE)
+
+qb |> filter(mvp == "MVP") |> select(season, player_name, all_of(rank_cols)) |> kable()
+
+qb |>
+  filter(mvp == "MVP") |>
+  summarise(across(all_of(rank_cols), mean)) |>
+  pivot_longer(everything(), names_to = "statistic", values_to = "avg_rank") |>
+  mutate(statistic = sub("_rank$", "", statistic)) |>
+  ggplot(aes(x = reorder(statistic, avg_rank), y = avg_rank)) +
+  geom_col() + coord_flip() +
+  labs(x = NULL, y = "Average within-season rank of the MVP (1 = best)",
+       title = "Which statistics do MVPs lead the league in?")
+```
+Based on the graph above, we can see that the touchdowns per interception ratio and win percentage are the two most important statistics when it comes to deciding who the MVP is. 

@@ -1,0 +1,101 @@
+---
+title: "FinalReport"
+output:
+  pdf_document: default
+  html_document: default
+date: "2026-11-07"
+---
+\begin{center}
+Understanding Why an NFL MVP is picked
+\end{center}
+
+Abstract
+________
+Within our project we analyze the five most recent NFL MVP's in order to find what kind of correlation QB statistics has on winning the NFL MVP. Currently we've seen a commonality that no matter what the MVP is leading their team to winning record, i.e above ".500". Another factor noted within our data is that the TD-INT ratio is also a factor, this being how many times a Quarterback has a touchdown pass per interception.Another being that the QB who won the award was usually at least top 10 when it came to most statistics like pass yards, Pass touchdowns, and other offensive metrics.
+
+
+
+
+Introduction
+____________
+The central question we have is, what decides who wins the MVp at the end of the regular season. From sports fans who may just be casuals and don't have the time to watch every game to Die hard fans who study film, we believe this analysis can help them decide if their QB has a chance at winning the MVP, and maybe anybody else interested in the MVP race. Of course just looking at a couple years of data doesn't do much until we've turned it into useful graphs, our primary objective was to classify what stood out about those individuals who had won MVP and what put them above others, what statistics leveraged them to be considered to valuable.
+
+
+
+
+Summary
+_______
+*Being top 10 in most if not all QB statistics
+*Having a high TD-INT ratio i.e don't turn the ball-over
+*QB must be on a team with a winning record, i.e >.650
+
+
+
+Data
+____
+The available data to us is from decades of MVP races, we specifically gathered our data from pro-football-reference.com which has a wide and detailed history of NFL statistics. We came to a total of 60 observations with them spanning 6 significant variables to help determine our answer. The data cleaning process was not difficult and made easy by the website because they have an option to export these statistics and allow you to remove rows, columns, other information that isn't necessary for what your analysis may require.
+```{r, echo=FALSE}
+knitr::include_graphics("C:/Users/germa/STAT 107 course/Figure/py_2021")
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics("C:/Users/germa/STAT 107 course/Figure/py_2022")
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics("C:/Users/germa/STAT 107 course/Figure/py_2023")
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics("C:/Users/germa/STAT 107 course/Figure/py_2024")
+```
+
+
+```{r, echo=FALSE}
+knitr::include_graphics("C:/Users/germa/STAT 107 course/Figure/py_2025")
+```
+
+
+The Graphs above are to merely illustrate that the MVP does not need to have 1st is all statistics but instead when we take a look at the graphs below, we can see commonalities among the MVP's
+
+
+
+
+
+```{r, echo=FALSE}
+knitr::include_graphics("C:/Users/germa/STAT 107 course/Figure/Mvp_win_td's")
+```
+We can see unanimously among the Qb's they lead their teams to be at least a .700+ record in the regular season showing MVP's are always on teams who a majority of their games
+
+```{r, echo=FALSE}
+knitr::include_graphics("C:/Users/germa/STAT 107 course/Figure/Statists_side_by_side")
+```
+
+
+
+Analysis
+________
+Another key comparison made here was the difference in which statistics the MVP are most exclusive, specifically when looking at the the win percentage and TD-int ratio are the most significant. The reason behind this is because win percentage is demonstrating that the Qb themselves can lead their team to a winning record which is important when come time for the play offs and their seeding. The other statistic being the ratio is important to show case how impact they are to not just being an offensive necessity but also no being a liability in turning the ball over. We expect to see similar results if we were to expand our range on years for the MVP, and our comparison methods could be improved by using a regression model to get a definitive answer on what statistics are most impactful, or also doing doing an expansion on the variables to see what other QB statistics may be significant.
+
+
+
+
+
+
+Credit
+______
+All:
+Helped draft topic, find data, and identify necessary information for project
+
+Marcus Poon:
+README.md file
+00_requirements.R file
+01_funct_DataCleaning.R file
+11_DataCleaning.Rmd file
+12_DataSaving.Rdata file
+
+Janelle Valadez
+31_DataVisualization.Rmd <-first 30 graphs doen by janelle, last 3 and numerical comparison done by Marucs
+
+German Gonzalez:
+FinalReport.Rmd

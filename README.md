@@ -13,6 +13,7 @@
 - FinalReport.Rmd & PDF: Describes in full detail our question, the methodology deployed to answer it, and the conclusions we aim to reach.
 
 ## Reproduce
-1. Open the project in RStudio.
+1. Download or clone the repository and open the project folder in RStudio. Set the
+   working directory to the project folder.
 2. Run 00_requirements.R.
 3. Knit 11_DataCleaning.Rmd, then 31_DataVisualization.Rmd, then FinalReport.Rmd.
